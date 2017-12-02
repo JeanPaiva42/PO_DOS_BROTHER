@@ -1,5 +1,6 @@
 from grafo import Grafo
 grafo = Grafo()
+#oi
 with open('PO_DOS_BROTHER/c33.txt', 'r') as f:
     for line in f:
         lineData = line.split()[0:5]

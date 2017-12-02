@@ -21,6 +21,7 @@ class Grafo:
         edgeInfo.append(infoList[1])
         edgeInfo.append(infoList[2])
         edgeInfo.append(infoList[3])
+        edgeInfo.append(infoList[4])
         newNode['edges'].append(edgeInfo)
         self.nodeList.append(newNode)
 
@@ -30,11 +31,9 @@ class Grafo:
         edgeInfo.append(infoList[1])
         edgeInfo.append(infoList[2])
         edgeInfo.append(infoList[3])
+        edgeInfo.append(infoList[4])
         node['edges'].append(edgeInfo)
-    '''def readData(self, dataPath):
-        with(dataPath, 'r') as f:
-            f
-'''
+
     def printGrafo(self):
 
         for i in self.nodeList:

@@ -17,24 +17,21 @@ class Grafo:
         newNode = {}
         newNode['id'] = infoList[0]
         newNode['edges'] =[]
-        edgeInfo = []
-        edgeInfo.append(infoList[1])
-        edgeInfo.append(infoList[2])
-        edgeInfo.append(infoList[3])
-        edgeInfo.append(infoList[4])
+        edgeInfo = (infoList[1],infoList[2],infoList[3],infoList[4])
         newNode['edges'].append(edgeInfo)
         self.nodeList.append(newNode)
 
     #add info to a node, such as new edges, costs and all
     def addInfo(self,node,infoList):
-        edgeInfo = []
-        edgeInfo.append(infoList[1])
-        edgeInfo.append(infoList[2])
-        edgeInfo.append(infoList[3])
-        edgeInfo.append(infoList[4])
+        edgeInfo = (infoList[1], infoList[2], infoList[3], infoList[4])
         node['edges'].append(edgeInfo)
 
     def printGrafo(self):
 
         for i in self.nodeList:
             print(i)
+
+    def inflow(self):
+        mycts = m.addConstrs((quicksum(x[i, f, p] * y[i, f, p, t]
+                                       for i in I for p in P[i, f]) <= z[f, t]
+                              for f in F for t in T), "myconstraint")

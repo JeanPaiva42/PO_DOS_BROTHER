@@ -1,14 +1,15 @@
 from grafo import Grafo
-grafo = Grafo()
+grafo = None
 #oi
 with open('PO_DOS_BROTHER/c33.txt', 'r') as f:
+    grafo = Grafo(int(f.readline().split()[0]))
     for line in f:
-        lineData = line.split()[0:5]
-        oi = grafo.getNode(lineData[0])
-        if oi:
-            grafo.addInfo(oi, lineData)
+        oi = line.split()
+        if len(oi) > 3:
+            grafo.addEdge(oi)
         else:
-            grafo.addNode(lineData)
+            grafo.setDemandas(oi)
+
 
 
 grafo.printGrafo()

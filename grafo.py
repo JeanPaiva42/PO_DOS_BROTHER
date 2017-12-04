@@ -1,57 +1,48 @@
-
+'''A estrutura do grafo se baseia em um dicionário com dois campos:
+um chamado 'demanda' que guarda uma lista de valores de demandas para os nós
+e um outro que é o 'edges' '''
 class Grafo:
     grafo = {}
     grafo['demanda'] = []
     grafo['edges'] = []
+    nodeNum=0
     def __init__(self, numNodes):
-        nodeNum = numNodes
-        for i in range(0, numNodes):
-            self.grafo['demanda'].append(0)
+        self.nodeNum = numNodes
         pass
 
-    def getNode(self, id):
-        for i in self.grafo:
-            if i['edges'][0] == id:
-                return i
-        else:
-            return None
-
+    #Retorna grafo
     def getgrafo(self):
         return self.grafo
-    #add node to the graph
 
+    #Adiciona arestas no grafo
     def addEdge(self, infoList):
         newtuple = (infoList[0], infoList[1],infoList[2],infoList[3],infoList[4])
         self.grafo['edges'].append(newtuple)
 
+    #Adiciona as demandas
     def setDemandas(self, v):
-        newV = v[1:]
-        if self.grafo['demanda'][int(newV[0])] == 0:
-            self.grafo['demanda'][int(newV[0])] = int(newV[1])
+        self.grafo['demanda'].append(v)
 
+    #Seta as demandas de nós que não foram especificadas na instancia para 0
+    def setDemandas2(self):
+        tam=len(self.grafo['demanda'])
+        for i in range(tam,self.nodeNum):
+            self.grafo['demanda'].append(0)
 
+    #Retorna arestas
+    def getEdges(self):
+        return self.grafo['edges']
 
+    #Retorna a lista com as demandas dos nós
+    def getDemanda(self):
+        return self.grafo['demanda']
 
-
-
+    #Printa grafo
     def printGrafo(self):
-        print(len(self.grafo['demanda']))
-        print(len(self.grafo['demanda']))
+        print self.grafo['demanda']
         for i in self.grafo['edges']:
-            print(i)
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+            print(str(i)+''+str(type(i)))
+        for j in self.grafo['demanda']:
+            print(str(j)+''+str(type(j)))
 
 
